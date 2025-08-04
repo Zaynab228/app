@@ -1,0 +1,9 @@
+<div class="container">
+  <app-main-slider></app-main-slider>
+  <app-category-slider></app-category-slider>
+  <div class="row row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-6">
+    @for (product of productList.slice(0, 18); track product._id) {
+      <app-product [product]="product"></app-product>
+    }
+  </div>
+</div>

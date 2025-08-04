@@ -1,0 +1,52 @@
+swiper-container {
+  width: 100%;
+  height: auto;
+  padding: 10px 0;
+}
+
+swiper-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+img {
+  max-width: 100%;
+  object-fit: cover;
+}
+
+/* استايل النقاط */
+.swiper-pagination {
+  position: relative;
+  bottom: 0;
+  padding-top: 10px;
+}
+
+.swiper-pagination-bullet {
+  width: 10px; /* حجم النقطة */
+  height: 10px; /* حجم النقطة */
+  background: #ccc; /* لون النقاط غير النشطة */
+  opacity: 0.7;
+  margin: 0 5px;
+}
+
+.swiper-pagination-bullet-active {
+  background: #007bff; /* لون النقطة النشطة */
+  opacity: 1;
+}
+
+/* استايل الأسهم (لو عايزة تخليها صغيرة زي النقاط) */
+.swiper-button-next,
+.swiper-button-prev {
+  width: 20px; /* حجم السهم صغير */
+  height: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  color: #333;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+  font-size: 12px; /* حجم رأس السهم */
+}

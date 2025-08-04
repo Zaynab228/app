@@ -1,0 +1,49 @@
+<div class="mx-auto w-75 p-4">
+ <!-- reactive form  -->
+  @if(errorMessage) {
+      <p class="alert alert-danger text-center">{{errorMessage}}</p>
+  }
+  <form [formGroup]="logInFrom" (ngSubmit)="handleLogIn()">
+   <!-- formGroup is acustom dirctive used to bind form with oject form -->
+    <!-- formControlName used to bind input with spacific control in objForm  -->
+    <label  class="my-2" for="email">Email</label>
+    <input formControlName="email" type="email" name="email" class="form-control" >
+    @if(logInFrom.get('email')?.touched){
+      <div>
+             @if(logInFrom.get('email')?.getError('required')){
+                 <p class="text-info py-2">email is required</p>
+                 }
+             @else if(logInFrom.get('email')?.getError('email')){
+                 <p class="text-info py-2">enter avalid email</p>
+            }
+            
+    </div>
+    }
+    <label  class="my-2" for="passWord">Password</label>
+    <input formControlName="password" type="password" name="password" class="form-control">
+     @if(logInFrom.get('password')?.touched){
+      <div>
+             @if(logInFrom.get('password')?.getError('required')){
+                 <p class="text-info py-2">password is required</p>
+                 }
+             @else if(logInFrom.get('password')?.getError('pattern')){
+                 <p class="text-info py-2">enter avalid password</p>
+            }
+            
+    </div>
+    }
+
+    <!-- "!signUpObjectForm.valid"========"signUpObjectForm.invalid" -->
+    <div class="div" class="d-flex justify-content-end  align-items-baseline">
+        <a routerLink="/forgetpassword" class="me-4 text-decoration-underline">forget your password</a>
+        <button type="submit" [disabled]="logInFrom.invalid||isloading" class="btn btn-outline-success my-lg-3">
+      @if(isloading==false){
+      <span>logIn</span>}
+      @else if(isloading==true){
+      <span  class="fa-solid fa-spinner fa-spin p-2 "></span>
+      }
+    </button>
+    </div>
+ </form>
+</div>
+

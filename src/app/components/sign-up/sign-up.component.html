@@ -1,0 +1,122 @@
+<div class="mx-auto w-75 p-4">
+   <!-- //templete driven form -->
+ <!-- <form (ngSubmit)="handleSubmit(formObj)" #formObj="ngForm">
+    <label class="my-2" for="username">UserName</label>
+    <input #usernameControl=" type="text" name="username" class="form-control" required minlength="4">
+    @if(usernameControl.touched){
+      <div>
+      @if(usernameControl.errors?.['required']){
+        <p class="text-info py-2">username is required</p>
+      }
+      @else if(usernameControl.errors?.['minlength']){
+        <p class="text-info py-2">min char is 4</p>
+      }
+    </div>
+    }
+    <label  class="my-2" for="email">Email</label>
+    <input #emailControl=" type="email" name="Email" class="form-control" required email>
+    @if(emailControl.touched){
+      <div>
+      @if(emailControl.errors?.['required']){
+        <p class="text-info py-2">email is required</p>
+      }
+      @else if(emailControl.errors?.['email']){
+        <p class="text-info py-2">enter avalid email</p>
+      }
+    </div>
+    }
+    <label  class="my-2" for="PassWord">PassWord</label>
+    <input #passwordControl=" type="password" name="pasword" class="form-control" required pattern="^[A-Z].{3,}$">
+    @if(passwordControl.touched){
+      <div>
+      @if(passwordControl.errors?.['required']){
+        <p class="text-info py-2">Password is required</p>
+      }
+      @else if(passwordControl.errors?.['pattern']){
+        <p class="text-info py-2">password should start with cap</p>
+      }
+      </div>
+    }
+    <button type="submit" class="btn btn-primary my-2">Submit</button>
+ </form> -->
+ <!-- reactive form  -->
+  @if(errorMessage) {
+      <p class="alert alert-danger text-center">{{errorMessage}}</p>
+  }
+  <form [formGroup]="signUpObjectForm" (ngSubmit)="handleSubmit()">
+   <!-- formGroup is acustom dirctive used to bind form with oject form -->
+    <!-- formControlName used to bind input with spacific control in objForm  -->
+    <label  class="my-2" for="name">UserName</label>
+    <input formControlName="name"  type="text" name="name" class="form-control" >
+     @if(signUpObjectForm.get('name')?.touched){
+      <div>
+             @if(signUpObjectForm.get('name')?.getError('required')){
+                 <p class="text-info py-2">username is required</p>
+                 }
+             @else if(signUpObjectForm.get('name')?.getError('maxlength')){
+                 <p class="text-info py-2">max char is 20</p>
+            }
+             @else if(signUpObjectForm.get('name')?.getError('minlength')){
+                 <p class="text-info py-2">min char is 4</p>
+            }
+    </div>
+    }
+    <label  class="my-2" for="email">Email</label>
+    <input formControlName="email" type="email" name="email" class="form-control" >
+    @if(signUpObjectForm.get('email')?.touched){
+      <div>
+             @if(signUpObjectForm.get('email')?.getError('required')){
+                 <p class="text-info py-2">email is required</p>
+                 }
+             @else if(signUpObjectForm.get('email')?.getError('email')){
+                 <p class="text-info py-2">enter avalid email</p>
+            }
+            
+    </div>
+    }
+    <label  class="my-2" for="passWord">Password</label>
+    <input formControlName="password" type="password" name="pasword" class="form-control">
+     @if(signUpObjectForm.get('password')?.touched){
+      <div>
+             @if(signUpObjectForm.get('password')?.getError('required')){
+                 <p class="text-info py-2">password is required</p>
+                 }
+             @else if(signUpObjectForm.get('password')?.getError('pattern')){
+                 <p class="text-info py-2">enter avalid password</p>
+            }
+            
+    </div>
+    }
+    <label  class="my-2" for="rePassWord">Repassword</label>
+    <input formControlName="rePassword" type="password" name="rePassword" class="form-control">
+       @if(signUpObjectForm.get('rePassword')?.dirty&&signUpObjectForm.get('password')?.dirty){
+      <div>
+             @if(signUpObjectForm.getError('passWordMismatch')){
+                <p class="text-info py-2">rePassword must be match repassword</p>
+            }
+            
+    </div>
+    }
+    <label  class="my-2" for="phone">phone</label>
+    <input formControlName="phone" type="tel" name="phone" class="form-control">
+     @if(signUpObjectForm.get('phone')?.touched){
+      <div>
+             @if(signUpObjectForm.get('phone')?.getError('required')){
+                 <p class="text-info py-2">phone is required</p>
+                 }
+             @else if(signUpObjectForm.get('phone')?.getError('pattern')){
+                 <p class="text-info py-2">phone must be valid</p>
+            }
+            
+    </div>
+    }
+    <!-- "!signUpObjectForm.valid"========"signUpObjectForm.invalid" -->
+    <button type="submit" [disabled]="signUpObjectForm.invalid||isloading" class="btn btn-outline-success my-lg-3">
+      @if(isloading==false){
+      <span>signUp</span>}
+      @else if(isloading==true){
+      <span  class="fa-solid fa-spinner fa-spin p-2 "></span>
+      }
+    </button>
+ </form>
+</div>

@@ -1,0 +1,39 @@
+
+    <div class="container">
+<div class="row">
+<div class="col-md-4 ">
+  <div class="swiper mt-5">
+  <div class="swiper-wrapper">
+    @for (image of productDetails.images; track $index) {
+      <div class="swiper-slide">
+        <div class="slide-content">
+          <img class="w-100" [src]="image" alt="" />
+        </div>
+      </div>
+    }
+  </div>
+
+</div>
+</div> 
+       <div class="col-md-8 p-5">
+            <div class="inner p-5">
+                <h3>{{productDetails.title}}</h3>
+            <p>{{productDetails.description}}</p>
+            <span class="text-main font-sm fw-medium fw-bold">{{productDetails.category.name}}</span>
+            <div class="">
+             <p class="text-secondary fw-medium ">availablequantity:{{productDetails.quantity}}</p>
+            <p>brand :{{productDetails.brand.name}}</p>
+           </div>
+           <div class="d-flex justify-content-between">
+            <span>{{productDetails.price}} EGP</span>
+            <div class="">
+                <i class="fa-solid fa-star text-warning"></i> 
+                <span class="ms-2"> {{productDetails.ratingsAverage}}</span>
+            </div>
+           </div>
+            <button type="button" class="btn mt-3 bg-main text-white w-100">+ add to card</button>
+        
+            </div>
+        </div>
+    </div>
+</div>

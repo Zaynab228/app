@@ -1,0 +1,32 @@
+<!-- 
+<div class="row">
+  <swiper-container class="d-flex" #swiperRef [swiper]="swiperOptions">
+    @for (category of allCategory; track category._id) {
+      <swiper-slide style="height: 200px">
+        <img style="height: 200px;" class="w-100 object-fit-cover " class="w-100 object-fit-cover" [src]="category.image" alt="{{category.name}}">
+        <h6 class="text-sm-center font-sm mt-2">{{category.name}}</h6>
+      </swiper-slide>
+    }
+  </swiper-container>
+</div> -->
+<!-- ```html
+<div class="row">
+  <swiper-container #swiperRef [swiper]="swiperOptions">
+    @for (category of allCategory; track category._id) {
+      <swiper-slide>
+        <img style="height: 200px;" class="w-100 object-fit-cover" [src]="category.image" alt="{{category.name}}">
+        <h6 class="text-sm-center font-sm mt-2">{{category.name}}</h6>
+      </swiper-slide>
+    }
+  </swiper-container>
+</div> -->
+<div class="row">
+  <swiper-container class="d-flex" #swiperRef [swiper]="swiperOptions">
+    @for (category of allCategory; track category._id) {
+      <swiper-slide>
+        <img style="height: 200px;" class="w-100 object-fit-cover" [src]="category.image" alt="{{category.name}}">
+        <h6 class="text-sm-center font-sm mt-2">{{category.name}}</h6>
+      </swiper-slide>
+    }
+  </swiper-container>
+</div>

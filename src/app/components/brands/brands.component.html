@@ -1,0 +1,22 @@
+
+  <div class="container mt-5">
+    <h2 class="text-center mb-4">categories</h2>
+    <div class="row row-cols-1 row-cols-md-5 g-4">
+        @for (brand of listOfBrands; track brand._id) {
+      <div class="col">
+        <div class="product p-3">
+            <img style="height: 150px ;" class="w-100 object-fit-cover" [src]="brand.image" [alt]="brand.name" />
+            <span class="text-main font-sm fw-medium">{{ brand.name }}</span>
+          <button (click)="getProductBybrandId(brand._id) "class="btn bg-main w-100 text-white mt-3"> Get Products </button>
+
+        </div>
+      </div>
+    }
+    </div>
+    <h4 class="text-main ">products</h4>
+   <div class="row row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-6">
+    @for (product of listOfProduct; track product._id) {
+      <app-product [product]="product"></app-product>
+    }
+  </div>
+

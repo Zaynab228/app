@@ -1,0 +1,18 @@
+<div class="mx-auto w-75 p-4">
+
+  <form [formGroup]="sippingAddressForm" (ngSubmit)="OnlinePayment()">
+    <label  class="my-2" for="details">details</label>
+    <input formControlName="details" type="text" name="details" class="form-control" > 
+
+    <label  class="my-2" for="phone">phone</label>
+    <input formControlName="phone" type="tel" name="phone" class="form-control">
+
+     <label  class="my-2" for="city">city</label>
+    <input formControlName="city" type="text" name="city" class="form-control">
+
+    <div class="div" class="d-flex justify-content-end  align-items-baseline">
+     <button type="submit" class="btn btn-outline-success my-lg-3">send</button>
+    </div>
+ </form>
+</div>
+
