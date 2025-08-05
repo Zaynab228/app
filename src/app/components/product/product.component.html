@@ -1,5 +1,6 @@
  <div class="col">
         <div class="product p-3">
+            <i (click)="addtoWishListProduct(product._id)" [class]="isInwishlist(product._id)?'fas fa-heart text-danger':'fa-regular fa-heart'" class="fa-regular fa-heart p-2 heart"></i>
           <a [routerLink]="['/product-details', product._id]">
             <img class="w-100" [src]="product.imageCover" [alt]="product.title" />
             <span class="text-main font-sm fw-medium">{{ product.category.name }}</span>
@@ -14,4 +15,4 @@
           </a>
           <button (click)="addProductTocart(product._id) "class="btn bg-main w-100 text-white mt-3">  + Add to cart </button>
         </div>
-      </div>
+</div>

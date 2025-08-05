@@ -28,6 +28,7 @@ import { ProductComponent } from './components/product/product.component';
 import { SliceTitlePipe } from './pipes/slice-title.pipe';
 import { SearchProductPipe } from './pipes/search-product.pipe';
 import { CategoryPipe } from './services/category.pipe';
+import { WishListComponent } from './components/wish-list/wish-list.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { CategoryPipe } from './services/category.pipe';
     ProductComponent,
     SliceTitlePipe,
     SearchProductPipe,
-    CategoryPipe
+    CategoryPipe,
+    WishListComponent
   ],
   imports: [
     FormsModule,

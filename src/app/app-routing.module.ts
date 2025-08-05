@@ -17,6 +17,7 @@ import { authGuard } from './guards/auth.guard';
 import { ProductsDetailsComponent } from './components/products-details/products-details.component';
 import { ShippingAddressComponent } from './components/shipping-address/shipping-address.component';
 import { AllordersComponent } from './components/allorders/allorders.component';
+import { WishListComponent } from './components/wish-list/wish-list.component';
 
 const routes: Routes = [
    {path:'',redirectTo:"home",pathMatch:'full'},
@@ -29,6 +30,7 @@ const routes: Routes = [
 
   {path:'category',component:CategoriesComponent},
   {path:'brands',component:BrandsComponent},
+    {path:'wish-list',component:WishListComponent},
   {path:'register',canDeactivate:[confirmSavingFormGuard],component:SignUpComponent},
   {path:'login',component:LoginComponent},
   {path:'signout',component:SignOutComponent},

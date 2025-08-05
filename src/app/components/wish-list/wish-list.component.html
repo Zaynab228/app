@@ -1,0 +1,31 @@
+@if (listOfwishListProduct && listOfwishListProduct.length > 0) {
+  <div class="container bg-main-light p-5 shadow-lg">
+    <h4 class="my-3 fw-medium">wish list</h4>
+       
+    @for (product of listOfwishListProduct; track product._id) {
+      <div class="row border-bottom py-3 align-items-center">
+        <div class="col-md-2 col-3">
+          <div class="inner">
+            <img class="w-75 img-thumbnail rounded" [src]="product.imageCover" alt="{{product.title}}">
+          </div>
+        </div>
+          <div class=" col-md-10">
+            <h6 class="my-1 fw-medium text-main">{{product.title}}</h6>
+            <p class="my-1 text-muted">{{product.description || 'No description'}}</p>
+            <p class="text-main fw-medium my-0 font-sm">price {{product.price}} EGP</p>
+            <button (click)="deleteItem(product._id)" class="btn border-danger-subtle text-danger my-1 me-2"> remove <i class=" fa-solid fa-trash "></i></button>
+             <button (click)="addProductTocart(product._id)" class="btn border-success-subtle text-main my-1 px-3"> + Add <i class="fas fa-cart-shopping"></i></button>
+
+          </div>
+         
+     </div>
+
+    }
+
+  </div>
+} @else {
+  <div class="container bg-main-light p-5 shadow-lg mt-5">
+    <h1 class="text-center fw-bolder">Not Found</h1>
+  </div>
+}
+```

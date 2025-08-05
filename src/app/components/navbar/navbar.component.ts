@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { CartService } from '../../services/cart.service';
+import { WishListService } from '../../services/wish-list.service';
 
 @Component({
   selector: 'app-navbar',
@@ -9,11 +10,17 @@ import { CartService } from '../../services/cart.service';
 })
 export class NavbarComponent implements OnInit {
   number!:number
-islogedInUer=false
-  constructor(private authService:AuthService ,private cartService:CartService){
+  islogedInUer=false 
+  numberofItemInWishList=0
+  constructor(private authService:AuthService ,private cartService:CartService,private wishListService:WishListService){
 
   }
   ngOnInit(): void {
+    this.wishListService.wishListProduct.subscribe({
+      next:(value) =>{
+        this.numberofItemInWishList=value.length
+      },
+    })
     this.cartService.updateNumberCatItems()
    this.authService.Islogin.subscribe({
     next:(value)=>{
